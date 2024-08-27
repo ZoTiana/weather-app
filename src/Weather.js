@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Circles } from "react-loader-spinner";
 import "./Weather.css";
 
-export default function Weather() {
+export default function Weather(props) {
   /*const [ready, setReady] = useState(false);*/
   const [weatherData, setWeatherData] = useState({ ready: false });
 
@@ -77,9 +78,18 @@ export default function Weather() {
     );
   } else {
     const apiKey = "d73d01c748aatfb2o0bcd43d19416a3e";
-    let city = "New York";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
-    return "Loading...";
+    return (
+      <Circles
+        height="80"
+        width="80"
+        color="#4FA94D"
+        ariaLabel="circles-loading"
+        wrapperStyle={{}}
+        wrapperClass=""
+        visible={true}
+      />
+    );
   }
 }
