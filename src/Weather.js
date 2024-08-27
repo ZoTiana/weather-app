@@ -3,22 +3,26 @@ import axios from "axios";
 import "./Weather.css";
 
 export default function Weather() {
-  const [ready, setReady] = useState(false);
-  const [weatherData, setWeatherData] = useState({});
+  /*const [ready, setReady] = useState(false);*/
+  const [weatherData, setWeatherData] = useState({ ready: false });
 
   function handleResponse(response) {
     console.log(response.data);
+
     setWeatherData({
+      ready: true,
       city: response.data.city,
+      time: "Wednesday 07:00",
       temperature: response.data.temperature.current,
       description: response.data.condition.description,
       humidity: response.data.temperature.humidity,
       wind: response.data.wind.speed,
+      icon: response.data.condition.icon,
     });
-    setReady(true);
+    /*setReady(true);*/
   }
 
-  if (ready) {
+  if (weatherData.ready) {
     return (
       <div className="Weather">
         <form>
@@ -42,15 +46,15 @@ export default function Weather() {
         </form>
         <h1>{weatherData.city}</h1>
         <ul>
-          <li>Wednesday 07:00</li>
-          <li>{weatherData.description}</li>
+          <li>{weatherData.time}</li>
+          <li className="text-capitalize">{weatherData.description}</li>
         </ul>
         <div className="row mt-3">
           <div className="col-6">
             <div className="clearfix">
               <img
-                src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
-                alt="weather-image"
+                src={`http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${weatherData.icon}.png`}
+                alt={weatherData.description}
                 className="float-left"
               />
               <div className="float-left d-inline-block">
