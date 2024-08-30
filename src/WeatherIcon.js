@@ -1,12 +1,13 @@
 import React from "react";
+import ReactAnimatedWeather from "react-animated-weather";
 
 export default function WeatherIcon(props) {
   return (
-    <div>
-      <img
-        src={`http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${props.code}.png`}
-        alt={props.alt}
-      />
-    </div>
+    <ReactAnimatedWeather
+      icon="CLEAR_DAY"
+      color="black"
+      size={30}
+      animate={true}
+    />
   );
 }

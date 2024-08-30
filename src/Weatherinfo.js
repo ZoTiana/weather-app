@@ -1,7 +1,6 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
-import ReactAnimatedWeather from "react-animated-weather";
 
 export default function Weatherinfo(props) {
   return (
@@ -23,11 +22,6 @@ export default function Weatherinfo(props) {
               />
             </div>
 
-            <img
-              src={`http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${props.data.icon}.png`}
-              alt={props.data.description}
-              className="float-left"
-            />
             <div className="float-left d-inline-block">
               <span className="temperature">
                 {Math.round(props.data.temperature)}
