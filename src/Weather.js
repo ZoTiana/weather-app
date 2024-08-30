@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-/*import FormattedDate from "./FormattedDate";*/
+
 import { Circles } from "react-loader-spinner";
 
 import Weatherinfo from "./Weatherinfo";
@@ -10,8 +10,9 @@ export default function Weather(props) {
   /*const [ready, setReady] = useState(false);*/
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
+
   function handleResponse(response) {
-    console.log(response.data);
+    /*console.log(response.data);*/
 
     setWeatherData({
       ready: true,
@@ -32,7 +33,8 @@ export default function Weather(props) {
     axios.get(apiUrl).then(handleResponse);
   }
   function handleSubmit(event) {
-    event.preventDefault;
+    event.preventDefault();
+    console.log(city);
     search();
   }
 
@@ -50,6 +52,7 @@ export default function Weather(props) {
                 placeholder="Enter a city.."
                 className="form-control"
                 autoFocus="on"
+                onChange={handleCityChange}
               />
             </div>
             <div className="col-3">
@@ -57,7 +60,6 @@ export default function Weather(props) {
                 type="submit"
                 value="Search"
                 className="btn btn-primary w-100"
-                onChange={handleCityChange}
               />
             </div>
           </div>
