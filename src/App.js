@@ -8,7 +8,11 @@ export default function App() {
       <div className="container">
         <Weather defaultCity="Tokyo" />
         <footer>
-          This project was coded by Zo Tiana and is{" "}
+          This project was coded by{" "}
+          <a href="mailto:zotiana@gmail.com" rel="noreferrer">
+            Zo Tiana
+          </a>{" "}
+          and is{" "}
           <a
             href="https://github.com/ZoTiana/weather-app"
             target="_blank"
