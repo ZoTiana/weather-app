@@ -49,3 +49,6 @@
   left: 20px;
   top: -34px;
 }
+.WeatherTemperature a {
+  text-decoration: none;
+}
