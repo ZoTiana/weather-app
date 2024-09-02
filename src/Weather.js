@@ -4,6 +4,7 @@ import axios from "axios";
 import { Circles } from "react-loader-spinner";
 
 import Weatherinfo from "./Weatherinfo";
+import WeatherForecast from "./WeatherForecast";
 import "./Weather.css";
 
 export default function Weather(props) {
@@ -65,6 +66,7 @@ export default function Weather(props) {
           </div>
         </form>
         <Weatherinfo data={weatherData} />
+        <WeatherForecast />
       </div>
     );
   } else {
