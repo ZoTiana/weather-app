@@ -34,6 +34,7 @@ export default function Weatherinfo(props) {
           </ul>
         </div>
       </div>
+      <hr />
     </div>
   );
 }
